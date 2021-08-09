@@ -49,9 +49,9 @@ public class AWSIPConverter implements IPConverter {
         String ip = null;
         try {
             ip = InetAddress.getByName(hostname).getHostAddress();
-            logger.info("Derived IP for " + hostname + ": " + ip);
+            logger.info("Derived IP for {}: {}", hostname, ip);
         } catch (UnknownHostException e) {
-            logger.warn("Could not resolve [" + hostname + "]");
+            logger.warn("Could not resolve [{}]", hostname);
         }
         return Optional.ofNullable(ip);
     }

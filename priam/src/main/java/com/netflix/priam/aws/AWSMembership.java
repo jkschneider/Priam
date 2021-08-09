@@ -180,7 +180,7 @@ public class AWSMembership implements IMembership {
                         new AuthorizeSecurityGroupIngressRequest(
                                 config.getACLGroupName(), ipPermissions));
                 if (logger.isInfoEnabled()) {
-                    logger.info("Done adding ACL to classic: " + StringUtils.join(listIPs, ","));
+                    logger.info("Done adding ACL to classic: {}", StringUtils.join(listIPs, ","));
                 }
             } else {
                 AuthorizeSecurityGroupIngressRequest sgIngressRequest =
@@ -192,7 +192,7 @@ public class AWSMembership implements IMembership {
                                 ipPermissions)); // Adding peers' IPs as ingress to the running
                 // instance SG
                 if (logger.isInfoEnabled()) {
-                    logger.info("Done adding ACL to vpc: " + StringUtils.join(listIPs, ","));
+                    logger.info("Done adding ACL to vpc: {}", StringUtils.join(listIPs, ","));
                 }
             }
 
@@ -251,9 +251,7 @@ public class AWSMembership implements IMembership {
                         new RevokeSecurityGroupIngressRequest(
                                 config.getACLGroupName(), ipPermissions));
                 if (logger.isInfoEnabled()) {
-                    logger.info(
-                            "Done removing from ACL within classic env for running instance: "
-                                    + StringUtils.join(listIPs, ","));
+                    logger.info("Done removing from ACL within classic env for running instance: {}", StringUtils.join(listIPs, ","));
                 }
             } else {
                 RevokeSecurityGroupIngressRequest req = new RevokeSecurityGroupIngressRequest();
@@ -262,9 +260,7 @@ public class AWSMembership implements IMembership {
                 // Adding peers' IPs as ingress to the running instance SG
                 client.revokeSecurityGroupIngress(req.withIpPermissions(ipPermissions));
                 if (logger.isInfoEnabled()) {
-                    logger.info(
-                            "Done removing from ACL within vpc env for running instance: "
-                                    + StringUtils.join(listIPs, ","));
+                    logger.info("Done removing from ACL within vpc env for running instance: {}", StringUtils.join(listIPs, ","));
                 }
             }
 

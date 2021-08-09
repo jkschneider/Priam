@@ -49,7 +49,7 @@ public class PropertiesFileTuner {
             }
             properties.getLayout().save(properties, new FileWriter(propertyFile));
         } catch (IOException | ConfigurationException e) {
-            logger.error("Could not tune " + propertyFile + ". Does it exist? Is it writable?", e);
+            logger.error("Could not tune {}. Does it exist? Is it writable?", propertyFile, e);
             throw e;
         }
     }

@@ -183,9 +183,7 @@ public class TokenRetriever implements ITokenRetriever {
                             "We have been assigned a token that C* thinks is alive. Throwing to buy time in the hopes that Gossip just needs to settle.");
                 }
                 ipToReplace = inferredIp;
-                logger.info(
-                        "Priam found that the token is not alive according to Cassandra and we should start Cassandra in replace mode with replace ip: "
-                                + inferredIp);
+                logger.info("Priam found that the token is not alive according to Cassandra and we should start Cassandra in replace mode with replace ip: {}", inferredIp);
             }
         }
         return ipToReplace;

@@ -202,8 +202,7 @@ public class MetaV2Proxy implements IMetaProxy {
         } catch (FileNotFoundException fne) {
             logger.error(fne.getLocalizedMessage());
         } catch (IOException ioe) {
-            logger.error(
-                    "IO Error while processing meta file: " + metaFile, ioe.getLocalizedMessage());
+            logger.error("IO Error while processing meta file: {}", metaFile, ioe.getLocalizedMessage());
             ioe.printStackTrace();
         } catch (BackupRestoreException bre) {
             logger.error("Error while trying to download the manifest file: {}", metaBackupPath);

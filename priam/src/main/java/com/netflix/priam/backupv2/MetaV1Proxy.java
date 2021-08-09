@@ -139,8 +139,7 @@ public class MetaV1Proxy implements IMetaProxy {
             // some leftover objects
             result.valid = (result.filesInMetaOnly.isEmpty());
         } catch (Exception e) {
-            logger.error(
-                    "Error while processing meta file: " + metaBackupPath, e.getLocalizedMessage());
+            logger.error("Error while processing meta file: {}", metaBackupPath, e.getLocalizedMessage());
             e.printStackTrace();
         }
 

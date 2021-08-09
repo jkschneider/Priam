@@ -243,7 +243,7 @@ public class StandardTuner implements ICassandraTuner {
         // Dont bootstrap in restore mode
         map.put("auto_bootstrap", autobootstrap);
         if (logger.isInfoEnabled()) {
-            logger.info("Updating yaml: " + yaml.dump(map));
+            logger.info("Updating yaml: {}", yaml.dump(map));
         }
         yaml.dump(map, new FileWriter(yamlFile));
     }

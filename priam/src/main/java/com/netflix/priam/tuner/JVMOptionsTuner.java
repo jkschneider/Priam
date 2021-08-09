@@ -58,7 +58,7 @@ public class JVMOptionsTuner {
         if (logger.isInfoEnabled()) {
             StringBuffer buffer = new StringBuffer("\n");
             configuredJVMOptions.stream().forEach(line -> buffer.append(line).append("\n"));
-            logger.info("Updating jvm.options with following values: " + buffer.toString());
+            logger.info("Updating jvm.options with following values: {}", buffer.toString());
         }
 
         // Verify we can write to output file and it is not directory.

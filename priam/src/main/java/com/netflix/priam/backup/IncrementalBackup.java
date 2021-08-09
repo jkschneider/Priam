@@ -97,9 +97,7 @@ public class IncrementalBackup extends AbstractBackup {
                 cleanOldBackups(configuration);
             }
         } catch (Exception e) {
-            logger.error(
-                    "Error while trying to find if incremental backup is enabled: "
-                            + e.getMessage());
+            logger.error("Error while trying to find if incremental backup is enabled: {}", e.getMessage());
         }
         return enabled;
     }

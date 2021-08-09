@@ -61,7 +61,7 @@ public abstract class BoundedExponentialRetryCallable<T> extends RetryableCallab
                     delay *= 2;
                     logger.error("Retry #{} for: {}", retry, e.getMessage());
                     if (++logCounter == 1 && logger.isInfoEnabled())
-                        logger.info("Exception --> " + ExceptionUtils.getStackTrace(e));
+                        logger.info("Exception --> {}", ExceptionUtils.getStackTrace(e));
                     sleeper.sleep(delay);
                 } else if (delay >= max && retry <= maxRetries) {
                     if (logger.isErrorEnabled()) {

@@ -132,11 +132,7 @@ public abstract class AbstractRestore extends Task implements IRestoreStrategy {
 
             File localFileHandler = temp.newRestoreFile();
             if (logger.isDebugEnabled())
-                logger.debug(
-                        "Created local file name: "
-                                + localFileHandler.getAbsolutePath()
-                                + File.pathSeparator
-                                + localFileHandler.getName());
+                logger.debug("Created local file name: {}{}{}", localFileHandler.getAbsolutePath(), File.pathSeparator, localFileHandler.getName());
             futureList.add(downloadFile(temp));
         }
 
